@@ -1,0 +1,17 @@
+{
+  "name": "arc-trade-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "arc-trade-bot.mjs",
+  "scripts": {
+    "start": "node arc-trade-bot.mjs"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "better-sqlite3": "^9.5.0",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
