@@ -24,14 +24,16 @@ import path from 'node:path'
 
 
 
-// ---------------------- Config ----------------------
-const DB_PATH = process.env.DB_PATH || 'trades.db'
-const dir = path.dirname(DB_PATH)
-if (dir && dir !== '.' && !fs.existsSync(dir)) {
-  fs.mkdirSync(dir, { recursive: true })
-}
+// ---- Config ----
+export const COOLDOWN_SECONDS = parseInt(process.env.COOLDOWN_SECONDS || '45', 10);
 
-const db = new Database(DB_PATH)
+// (optional) allow DB path override & ensure directory exists
+import fs from 'node:fs';
+import path from 'node:path';
+const DB_PATH = process.env.DB_PATH || 'trades.db';
+const dir = path.dirname(DB_PATH);
+if (dir && dir !== '.' && !fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+
 
 // SQLite schema
 db.exec(`
